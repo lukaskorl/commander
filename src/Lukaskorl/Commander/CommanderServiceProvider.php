@@ -18,7 +18,11 @@ class CommanderServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		// Register the default implementation for the command bus
+        $this->app->bind('Lukaskorl\Commander\CommandBus', 'Lukaskorl\Commander\CommandBus\ExecutionCommandBus');
+
+        // Register the default implementation for name inflections
+        $this->app->bind('Lukaskorl\Commander\CommandNameInflector', 'Lukaskorl\Commander\Inflector\SameNamespaceCommandNameInflector');
 	}
 
 	/**
