@@ -3,6 +3,7 @@ A an implementation of the _Domain Events_ pattern for Laravel. Many of the basi
 
   1. [Abstract and introduction](#intro)
   1. [Decorating the command bus](#decorator)
+  1. [License](#license)
 
 ## <a name="intro"></a>Abstract and introduction
 
@@ -38,3 +39,8 @@ A **command bus** has a very simple interface (namely an _execute(...)_ method).
 	$commandBus = new ValidationCommandBus(new LogCommandBus(new ExecutionCommandBus));
 
 Each of the custom command buses overwrites the _execute(...)_ method to inject custom logic before or after executing _parent::execute(...)_. 
+
+
+## <a href="license"></a>License
+
+_Laravel Crafter_ is distributed under [MIT](http://opensource.org/licenses/MIT) license.
