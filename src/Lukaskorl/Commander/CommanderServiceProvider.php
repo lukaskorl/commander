@@ -22,7 +22,7 @@ class CommanderServiceProvider extends ServiceProvider {
         $this->app->bind('Lukaskorl\Commander\CommandBus', 'Lukaskorl\Commander\CommandBus\ExecutionCommandBus');
 
         // Register the default implementation for name inflections
-        $this->app->bind('Lukaskorl\Commander\CommandNameInflector', 'Lukaskorl\Commander\Inflector\SameNamespaceCommandNameInflector');
+        $this->app->bind('Lukaskorl\Commander\CommandNameInflector', 'Lukaskorl\Commander\Inflector\GroupedNamespaceCommandNameInflector');
 	}
 
 	/**

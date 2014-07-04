@@ -2,7 +2,7 @@
 
 use Lukaskorl\Commander\Command;
 
-abstract class DataTransferObjectCommand implements Command {
+abstract class DataTransferCommand implements Command {
 
     /** @var array */
     public $data;

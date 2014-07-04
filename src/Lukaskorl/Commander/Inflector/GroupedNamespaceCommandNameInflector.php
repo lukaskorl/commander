@@ -3,7 +3,7 @@
 use Lukaskorl\Commander\Command;
 use Lukaskorl\Commander\CommandNameInflector;
 
-class SameNamespaceCommandNameInflector implements CommandNameInflector {
+class GroupedNamespaceCommandNameInflector implements CommandNameInflector {
 
     public function toHandlerClassname(Command $command)
     {
