@@ -34,9 +34,50 @@ This architecture is represented by concentric polygons:
 
 ## <a name="listeners"></a>Listening to events
 
-_Commander_ provides a configuration for automatically registering any number of event listeners to a given event. It is very likely that you may want to change this configuration. To do so you will have to publish the package configuration:
+_Commander_ ships with a convenient base class for your listeners which introduces a very readable method convention. Simply extend your listener from `Lukaskorl\Commander\EventListener`. For each event you want to handle create a `when<NameOfEvent>` method. The method accepts the `Event` itself as the first and only parameter. i.e.
+
+	<?php namespace MyApplication\Listeners;
+	
+	use Lukaskorl\Commander\EventListener;
+	use Lukaskorl\Commander\Event;
+
+	class EmailNotifier extends EventListener {
+
+		public function whenUserHasBeenRegister(Event $event)
+		{
+			// Send welcome email
+		}
+
+		public function whenUserHasUnsubscribed(Event $event)
+		{
+			// Send good-bye email
+		}
+
+
+	}
+
+__After creating your listener you will have to register the listener at the dispatcher.__
+
+_Commander_ provides a configuration for automatically registering any number of event listeners for a given event. It is very likely that you may want to change this configuration. To do so you will have to publish the package configuration:
 
 	$ php artisan config:publish lukaskorl/commander
+
+This will put the `listeners.php` configuration file in `app/config/packages/lukaskorl/commander`. The configuration provides an exmaple listener. Feel free to change this configuration to your needs.
+
+i.e. if you have a `MyApplication\User\UserHasBeenRegisteredEvent` and want to register the listeners `MyApplication\Listeners\EmailNotifier` and `MyApplication\Listeners\Logging` for this event your configuration will look like this:
+
+	<?php return [
+		...
+
+		'MyApplication.User.*' => [
+			'MyApplication\Listeners\EmailNotifier',
+			'MyApplication\Listeners\Logging',
+		],
+
+		...
+	];
+
+This will trigger your listeners on any event in the `MyApplication\User` namespace. If you extend your listener from `Lukaskorl\Commander\EventListener` only those events that have a corresponding `when<NameOfEvent>` method will be handled.
 
 ## <a name="decorator"></a>Decorating the command bus
 
