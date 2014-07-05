@@ -79,6 +79,12 @@ i.e. if you have a `MyApplication\User\UserHasBeenRegisteredEvent` and want to r
 
 This will trigger your listeners on any event in the `MyApplication\User` namespace. If you extend your listener from `Lukaskorl\Commander\EventListener` only those events that have a corresponding `when<NameOfEvent>` method will be handled.
 
+If you want to manually register listeners on the dispatcher you can simply inject `Lukaskorl\Commander\Dispatcher\EventDispatcher` into your class or use the following snippet:
+
+	/** @var Lukaskorl\Commander\Dispatcher\EventDispatcher $dispatcher */
+    $dispatcher = App::make('Lukaskorl\Commander\Dispatcher\EventDispatcher');
+    $dispatcher->registerListener('Acme.*', 'MyApplication\Listeners\Notification');
+
 ## <a name="decorator"></a>Decorating the command bus
 
 A **command bus** has a very simple interface (namely an _execute(...)_ method). it is easy to decorate that interface and let the decorator add functionality to the **command bus**.
