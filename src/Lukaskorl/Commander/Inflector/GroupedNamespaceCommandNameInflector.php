@@ -1,7 +1,7 @@
 <?php namespace Lukaskorl\Commander\Inflector;
 
 use Lukaskorl\Commander\Command;
-use Lukaskorl\Commander\CommandNameInflector;
+use Lukaskorl\Commander\Inflector\CommandNameInflector;
 
 class GroupedNamespaceCommandNameInflector implements CommandNameInflector {
 

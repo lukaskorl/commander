@@ -32,6 +32,12 @@ This architecture is represented by concentric polygons:
   * A best practice is to decouple vendor libraries used by the application layer by the use of _interfaces_. So the application layer defines how it will use the framework functionality without coupling directly to the framework.
   * A **command handler** executes a given command and runs the logic to fulfill the business value of the use-case. This is where reusage kicks in. **Command handlers** may receive commands from any **command bus** (used by CLI, HTTP, ...).
 
+## <a name="listeners"></a>Listening to events
+
+_Commander_ provides a configuration for automatically registering any number of event listeners to a given event. It is very likely that you may want to change this configuration. To do so you will have to publish the package configuration:
+
+	$ php artisan config:publish lukaskorl/commander
+
 ## <a name="decorator"></a>Decorating the command bus
 
 A **command bus** has a very simple interface (namely an _execute(...)_ method). it is easy to decorate that interface and let the decorator add functionality to the **command bus**.

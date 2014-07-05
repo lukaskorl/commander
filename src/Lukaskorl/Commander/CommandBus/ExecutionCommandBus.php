@@ -2,7 +2,7 @@
 
 use Illuminate\Container\Container;
 use Lukaskorl\Commander\CommandHandler;
-use Lukaskorl\Commander\CommandNameInflector;
+use Lukaskorl\Commander\Inflector\CommandNameInflector;
 
 class ExecutionCommandBus implements CommandBus {
 

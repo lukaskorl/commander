@@ -1,4 +1,4 @@
-<?php namespace Lukaskorl\Commander;
+<?php namespace Lukaskorl\Commander\Inflector;
 
 interface CommandNameInflector {
 
