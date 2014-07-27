@@ -1,4 +1,4 @@
-<?php namespace Lukaskorl\Commander\Events;
+<?php namespace Lukaskorl\Commander\Bindings;
 
 
 trait NamespaceEventName {
