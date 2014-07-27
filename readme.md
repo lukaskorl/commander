@@ -43,6 +43,17 @@ To install _Commander_ via composer execute the following command in your applic
 
 and specify a version number of `0.*` to use the most current version and automatically include all compatible updates and bugfixes.
 
+To enable configuration and doing some automatic bootstrapping of your Laravel application add the service provider to your `app/config/app.php` configuration file:
+
+	<?php
+		...
+		'providers' => array(
+
+			...
+			'Lukaskorl\Commander\CommanderServiceProvider',
+		),
+		...
+
 ## <a name="commands"></a>Firing a command
 
 The best way to think of commands is to think of them as a business use-case. So create one command per unique use-case by implementing the `Lukaskorl\Commander\Command` interface.

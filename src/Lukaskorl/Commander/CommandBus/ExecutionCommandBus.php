@@ -1,6 +1,7 @@
 <?php namespace Lukaskorl\Commander\CommandBus;
 
 use Illuminate\Container\Container;
+use Lukaskorl\Commander\CommandBus;
 use Lukaskorl\Commander\CommandHandler;
 use Lukaskorl\Commander\Inflector\CommandNameInflector;
 
