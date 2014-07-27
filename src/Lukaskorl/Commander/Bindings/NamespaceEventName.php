@@ -1,7 +1,7 @@
 <?php namespace Lukaskorl\Commander\Events;
 
 
-trait NamespaceBindingEvent {
+trait NamespaceEventName {
 
     /**
      * Dot-object notation for event binding name derived from
