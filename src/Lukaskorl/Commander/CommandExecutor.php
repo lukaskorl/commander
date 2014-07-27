@@ -2,7 +2,7 @@
 
 use App;
 
-trait Executor {
+trait CommandExecutor {
 
     /**
      * Execute a command
