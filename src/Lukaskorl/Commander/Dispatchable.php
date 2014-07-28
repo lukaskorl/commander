@@ -11,7 +11,7 @@ trait Dispatchable {
      * @param Eventable $raiser
      * @return mixed
      */
-    public function dispatchAndFlushEventsFor(Eventable $raiser)
+    public function dispatchAndFlushEventsFor($raiser)
     {
         return $this->getEventDispatcher()->dispatch($raiser->flushEvents());
     }
